@@ -16,7 +16,7 @@
 
         <div style="float: right; width:60%; height:100px; display: inline-block; border-radius: 45px 0px 0px 45px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
             <div style="text-align: center; padding-top:25px;">
-                <a style="font-size:30px; color:#F2D3AC" class="" asp-area="" asp-page="/Freelancer/ApplicationList">Applicants List</a>
+                <a style="font-size:30px; color:#F2D3AC" class="" asp-area="" asp-route-id="@ViewData["UserId"]" asp-page="/Freelancer/FreelancerPage">Profile Page</a>
             </div>
         </div>
 
@@ -26,11 +26,7 @@
             </div>
         </div>
 
-        <div style="float: right; width:60%; height:100px; display: inline-block; border-radius: 45px 0px 0px 45px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
-            <div style="text-align: center; padding-top:25px;">
-                <a style="font-size:30px; color:#F2D3AC" class="" asp-area="" asp-route-id="@ViewData["UserId"]" asp-page="/Freelancer/FreelancerPage">Profile Page</a>
-            </div>
-        </div>
+        
     </div>
 </body>
 
