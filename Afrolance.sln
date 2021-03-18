@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Afrolance", "Afrolance.csproj", "{990CA652-C7DA-4C50-81A2-1A145C1B12CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{990CA652-C7DA-4C50-81A2-1A145C1B12CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990CA652-C7DA-4C50-81A2-1A145C1B12CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990CA652-C7DA-4C50-81A2-1A145C1B12CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990CA652-C7DA-4C50-81A2-1A145C1B12CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8963E43A-408B-4B3D-A7A9-5DBC0984E724}
+	EndGlobalSection
+EndGlobal

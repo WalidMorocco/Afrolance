@@ -1,0 +1,60 @@
+﻿@page
+@model EmployersListModel
+@{
+}
+
+<div class="text-center">
+
+    <table class="table table-bordered table-sm table-striped">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Employer Name</th>
+                <th>Employer Email</th>
+                <th>Password</th>
+                <th>Field of work</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No Model</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var p in Model.tix)
+                {
+                    <tr>
+                        <td>@p.Employer_ID</td>
+                        <td>@p.Employer_Name</td>
+                        <td>@p.Employer_Email</td>
+                        <td>@p.Employer_PW</td>
+                        <td>@p.Employer_Field</td>
+                        <td>@p.Employer_Description</td>
+
+                        @{
+                            if (p.Employer_Status == true)
+                            {
+                                <td>Active</td>
+                            }
+                            else
+                            {
+                                <td>Closed</td>
+                            }
+                        }
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+
+    </table>
+
+</div>

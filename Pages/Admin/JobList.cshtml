@@ -1,0 +1,47 @@
+﻿@page
+@model Afrolance.Pages.Admin.JobListModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @Model.FName</h1> <!-- Add razorcode for name in URL -->
+
+    <table class="table table-bordered table-sm table-striped">
+
+        <thead>
+            <tr>
+                <th>Job Title</th>
+                <th>Job Description</th>
+                <th>Category</th>
+                <th>Employer Notes</th>
+                <th>Pay</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No Model</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var p in Model.tix)
+                {
+                    <tr>
+                        <td>@p.Job_Title</td>
+                        <td>@p.Job_Desc</td>
+                        <td>@p.Category</td>
+                        <td>@p.Employer_Notes</td>
+                        <td>@p.Pay</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+
+    </table>
+
+</div>

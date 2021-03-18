@@ -1,0 +1,56 @@
+﻿@page
+@model Afrolance.Pages.Freelancer.SignUpModel
+@{
+}
+
+<h1>Sign Up</h1>
+
+<form method="post">
+
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Name"></label>
+        <input asp-for="suf.Freelancer_Name" type="text" class="form-control" placeholder="Employer Representative Name" />
+        <span asp-validation-for="suf.Freelancer_Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Email"></label>
+        <input asp-for="suf.Freelancer_Email" type="text" class="form-control" placeholder="Email" />
+        <span asp-validation-for="suf.Freelancer_Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_PW"></label>
+        <input asp-for="suf.Freelancer_PW" type="text" class="form-control" placeholder="Password" />
+        <span asp-validation-for="suf.Freelancer_PW" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Field"></label>
+        <input asp-for="suf.Freelancer_Field" type="text" class="form-control" placeholder="Field of work" />
+        <span asp-validation-for="suf.Freelancer_Field" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Description"></label>
+        <input asp-for="suf.Freelancer_Description" type="text" class="form-control" placeholder="Employer Representative description" />
+        <span asp-validation-for="suf.Freelancer_Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Submit</button>
+
+
+</form>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+@{
+    if (Model.suf is null == false)
+    {
+        <h1>Results</h1>
+        <p>@Model.suf.Freelancer_Name</p>
+        <p>@Model.suf.Feedback</p>
+    }
+}

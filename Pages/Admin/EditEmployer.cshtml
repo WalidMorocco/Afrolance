@@ -1,0 +1,55 @@
+﻿@page
+@model Afrolance.Pages.Admin.EditEmployerModel
+@{
+}
+
+<h1>Edit Employer</h1>
+
+<form method="post">
+
+    @** REGULAR HTML USING BINDING TO CLASS PROPERTIES **@
+
+    <div class="form-group">
+        <label asp-for="sue.Employer_Name"></label>
+        <input asp-for="sue.Employer_Name" type="text" class="form-control" placeholder="Name of the employer / company" />
+        <span asp-validation-for="sue.Employer_Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="sue.Employer_Email"></label>
+        <input asp-for="sue.Employer_Email" type="text" class="form-control" placeholder="Email" />
+        <span asp-validation-for="sue.Employer_Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="sue.Employer_PW"></label>
+        <input asp-for="sue.Employer_PW" type="text" class="form-control" placeholder="Password" />
+        <span asp-validation-for="sue.Employer_PW" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="sue.Employer_Field"></label>
+        <input asp-for="sue.Employer_Field" type="text" class="form-control" placeholder="Field of work" />
+        <span asp-validation-for="sue.Employer_Field" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="sue.Employer_Description"></label>
+        <input asp-for="sue.Employer_Description" type="text" class="form-control" placeholder="Employer / Company description" />
+        <span asp-validation-for="sue.Employer_Description" class="text-danger"></span>
+    </div>
+    <input asp-for="sue.Employer_ID" type="hidden" class="form-control" />
+    <button type="submit" class="btn btn-primary">Update</button>
+
+</form>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+@{
+    if (Model.sue is null == false && Model.sue.Feedback != null)
+    {
+        <h1>Results</h1>
+        <p>@Model.sue.Feedback</p>
+    }
+}

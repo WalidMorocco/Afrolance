@@ -1,0 +1,36 @@
+﻿@page
+@model Afrolance.Pages.Admin.IndexModel
+@{
+}
+
+<h1>Login Page</h1>
+
+<form method="post">
+
+
+    <div class="form-group">
+        <label asp-for="tAdmin.Admin_Email"></label>
+        <input asp-for="tAdmin.Admin_Email" type="text" class="form-control" placeholder="Username" />
+        <span asp-validation-for="tAdmin.Admin_Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="tAdmin.Admin_PW"></label>
+        <input asp-for="tAdmin.Admin_PW" type="text" class="form-control" placeholder="Username" />
+        <span asp-validation-for="tAdmin.Admin_PW" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+
+</form>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+@{
+    if (Model.tAdmin != null && Model.tAdmin.Feedback != null)
+    {
+        <h1>Results</h1>
+        <p>@Model.tAdmin.Feedback</p>
+    }
+}

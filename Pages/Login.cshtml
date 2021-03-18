@@ -1,0 +1,36 @@
+﻿@page
+@model Afrolance.Pages.LoginModel
+@{
+}
+
+
+<body>
+    <div style="height:40px; display: block;">
+        <a class="navbar text-dark" style="background-color:#F2B988; width:6%; float: right; font-size:12px;" asp-area="" asp-page="/Admin/Index">Login Admin</a>
+    </div>
+    <div style="float: left; width:45%; display: block;">
+        <div style="margin-left:25%; display: block;"><h2>Employer</h2></div>
+        <div style="display:block">
+            <li>Signing up as an employer means that you are either company, a buisiness or an individual and </li>
+            <li>Post a Job Announcement</li>
+            <li>Access to the Jobs list</li>
+            <li>Access to the any job's applicant page</li>
+            <li>Acces to Freelancers profiles</li>
+        </div>
+        <div class="nav-item" style="display: block;">
+            <a class="" asp-area="" asp-page="/Employer/Index">Login</a>
+            <a class="" asp-area="" asp-page="/SUEmployer">Sign Up</a>
+        </div>
+    </div>
+    <div style="float: right; width:45%; display: block;">
+        <div style="margin-left:25%; "><h2>Freelancer</h2></div>
+        <div style="display:block;">
+            <li>Apply to a job</li>
+            <li>Access the job list</li>
+        </div>
+        <div class="nav-item" style="display: block;">
+            <a class="" asp-area="" asp-page="/Freelancer/Index">Login</a>
+            <a class="" asp-area="" asp-page="/SUFreelancer">Sign Up</a>
+        </div>
+    </div>
+</body>
