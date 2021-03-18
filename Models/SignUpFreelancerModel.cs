@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Freelancer model Variables Database
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +13,10 @@ namespace Afrolance.Models
         public int Freelancer_ID { get; set; }
 
         [Required, StringLength(255)]
-        public String Freelancer_Name { get; set; }
+        public String Freelancer_FName { get; set; }
+
+        [Required, StringLength(255)]
+        public String Freelancer_LName { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -21,17 +25,28 @@ namespace Afrolance.Models
         public String Freelancer_Email { get; set; }
 
         [Required, StringLength(255)]
+        [MinLength(8)]
         public String Freelancer_PW { get; set; }
 
         [Required]
-        [StringOptionsValidate(Allowed = new String[] { "IT", "Design", "Music", "Cosmetic", "Photography", "Desk", "Security" },
-            ErrorMessage = "Sorry, Category is invalid.  Categories: IT, Design, Music, Cosmetic, Photography, Desk, Security")]
+        [StringOptionsValidate(Allowed = new String[] { "IT", "Marketing", "Design", "Business", "Communication", "Medical", "Electrical", "Architecture", "Languages", "Driving", "Teaching", "Music", "Cosmetic", "Photography", "Desk", "Security" },
+            ErrorMessage = "Sorry, Category is invalid.")]
         public String Freelancer_Field { get; set; }
 
         [Required]
-        public String Freelancer_Description { get; set; }
+        public String Freelancer_Resume { get; set; }
+
+        public String Freelancer_Bio { get; set; }
 
         [Required]
+        public String Freelancer_Phone { get; set; }
+
+        [Required]
+        public String Freelancer_Country { get; set; }
+
+        [Required]
+        public String Freelancer_City { get; set; }
+        
         public bool Freelancer_Status { get; set; }
 
         public String Feedback { get; set; }

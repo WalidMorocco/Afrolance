@@ -7,34 +7,82 @@
 
 <form method="post">
 
-
     <div class="form-group">
-        <label asp-for="suf.Freelancer_Name" >Freelancer Name</label>
-        <input asp-for="suf.Freelancer_Name" type="text" class="form-control" placeholder="Employer Representative Name" />
-        <span asp-validation-for="suf.Freelancer_Name" class="text-danger"></span>
+        <label asp-for="suf.Freelancer_FName">First Name</label>
+        <input asp-for="suf.Freelancer_FName" type="text" class="form-control" placeholder="First Name" />
+        <span asp-validation-for="suf.Freelancer_FName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="suf.Freelancer_Email">Freelancer Email</label>
+        <label asp-for="suf.Freelancer_LName">Last Name</label>
+        <input asp-for="suf.Freelancer_LName" type="text" class="form-control" placeholder="Last Name" />
+        <span asp-validation-for="suf.Freelancer_LName" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Email">Email</label>
         <input asp-for="suf.Freelancer_Email" type="text" class="form-control" placeholder="Email" />
         <span asp-validation-for="suf.Freelancer_Email" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="suf.Freelancer_PW">Password</label>
-        <input asp-for="suf.Freelancer_PW" type="text" class="form-control" placeholder="Password" />
+        <input asp-for="suf.Freelancer_PW" type="password" class="form-control" placeholder="Password">
         <span asp-validation-for="suf.Freelancer_PW" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="suf.Freelancer_Field">Field of Work</label>
-        <input asp-for="suf.Freelancer_Field" type="text" class="form-control" placeholder="Field of work" />
+        <label asp-for="suf.Freelancer_Field">Category</label>
+        <select asp-for="suf.Freelancer_Field" class="form-control">
+            <option value="IT">IT</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Design">Design</option>
+            <option value="Business">Business</option>
+            <option value="Communication">Communication</option>
+            <option value="Medical">Medical</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Architecture">Architecture</option>
+            <option value="Languages">Languages</option>
+            <option value="Driving">Driving</option>
+            <option value="Teaching">Teaching</option>
+            <option value="Music">Music</option>
+            <option value="Cosmetic">Cosmetic</option>
+            <option value="Photography">Photography</option>
+            <option value="Desk">Desk</option>
+            <option value="Security">Security</option>
+        </select>
         <span asp-validation-for="suf.Freelancer_Field" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="suf.Freelancer_Description">A sm</label>
-        <input asp-for="suf.Freelancer_Description" type="text" class="form-control" placeholder="Employer Representative description" />
-        <span asp-validation-for="suf.Freelancer_Description" class="text-danger"></span>
+        <label asp-for="suf.Freelancer_Resume">Resume</label>
+        <textarea asp-for="suf.Freelancer_Resume" type="text" class="form-control" placeholder="Resume"></textarea>
+        <span asp-validation-for="suf.Freelancer_Resume" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Bio">Bio</label>
+        <textarea asp-for="suf.Freelancer_Bio" type="text" class="form-control" placeholder="Bio"></textarea>
+        <span asp-validation-for="suf.Freelancer_Bio" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Phone">Phone</label>
+        <textarea asp-for="suf.Freelancer_Phone" type="text" class="form-control" placeholder="Phone"></textarea>
+        <span asp-validation-for="suf.Freelancer_Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_Country">Country</label>
+        <input asp-for="suf.Freelancer_Country" type="text" class="form-control" placeholder="Country" />
+        <span asp-validation-for="suf.Freelancer_Country" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="suf.Freelancer_City">City</label>
+        <textarea asp-for="suf.Freelancer_City" type="text" class="form-control" placeholder="City"></textarea>
+        <span asp-validation-for="suf.Freelancer_City" class="text-danger"></span>
     </div>
 
     <button type="submit">Submit</button>
@@ -50,7 +98,8 @@
     if (Model.suf is null == false)
     {
         <h1>Results</h1>
-        <p>@Model.suf.Freelancer_Name</p>
+        <p>@Model.suf.Freelancer_FName</p>
+        <p>@Model.suf.Freelancer_LName</p>
         <p>@Model.suf.Feedback</p>
     }
 }

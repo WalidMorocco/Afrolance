@@ -21,7 +21,6 @@ namespace Afrolance.Pages.Admin
         public List<AddJobDataAccessLayer> tix { get; set; }
 
         private readonly IConfiguration _configuration;
-
         public JobAddModel(IConfiguration configuration)
         {
             _configuration = configuration;

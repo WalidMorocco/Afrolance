@@ -1,0 +1,73 @@
+﻿@page
+@model Afrolance.Pages.Admin.PostedJobListModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div>
+        <a asp-area="" asp-page="/Admin/JobAdd" style="float:right;">Add a Job</a>
+    </div>
+
+    <table class="table table-bordered table-sm table-striped">
+
+        <thead>
+            <tr>
+                <th>Job ID</th>
+                <th>Employer ID</th>
+                <th>Job Title</th>
+                <th>Job Description</th>
+                <th>Category</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Employer Notes</th>
+                <th>Pay</th>
+                <th>Status</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No Model</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var p in Model.tix)
+                {
+                    <tr>
+                        <td>@p.Job_ID</td>
+                        <td>@p.Employer_ID</td>
+                        <td>@p.Job_Title</td>
+                        <td>@p.Job_Desc</td>
+                        <td>@p.Category</td>
+                        <td>@p.Start_Date</td>
+                        <td>@p.End_Date</td>
+                        <td>@p.Employer_Notes</td>
+                        <td>@p.Pay</td>
+
+                        @{
+                            if (p.Active == true)
+                            {
+                                <td>Active</td>
+                            }
+                            else
+                            {
+                                <td>Closed</td>
+                            }
+                        }
+                        <td><a asp-page="/Admin/EditJob" asp-route-id="@p.Job_ID">Edit</a></td>
+                        <td><a asp-page="/Admin/DeleteJob" asp-route-id="@p.Job_ID">Delete</a></td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+
+    </table>
+
+</div>

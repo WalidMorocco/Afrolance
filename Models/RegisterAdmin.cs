@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Admin identification variables model
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,8 +21,10 @@ namespace Afrolance.Models
         [Required]
         public int Admin_ID { get; set; }
 
-        [EmailAddress]
-        [Display(Name = "Username")]
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [MaxLength(50)]
+        [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Please enter a valid email.")]
         public String Admin_Email { get; set; }
 
         [Required, StringLength(20)]

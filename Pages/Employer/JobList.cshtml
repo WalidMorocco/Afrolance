@@ -1,0 +1,48 @@
+﻿@page
+@model Afrolance.Pages.Employer.JobListModel
+@{
+}
+
+<body>
+    <div style="">
+        <div style="margin-left:1%; display:block;">
+            <h1>Job List</h1>
+        </div>
+        <div>
+            <a class="nav-link" style="color:white" asp-area="" asp-page="/Employer/JobAdd">Add a job</a>
+        </div>
+        <div>
+            @foreach (var p in Model.tix)
+            {
+                <div style=" margin-bottom: 50px;">
+                    <div class="" style="margin-top:50px; margin-bottom: 50px; display: block; margin-left:2%; margin-right:2%; background-color: #A67246; box-shadow: 5px 10px 10px #26221d; border-radius: 0px 200px 0px 0px">
+                        <div style="margin-left:1%; display:block;">
+
+                            <h2 style="font-size:36px; color:#26221D">@p.Job_Title</h2>
+                        </div>
+                        <div style="margin-left:5%; display:block;">
+                            <h3 style="font-size:18px; color:#26221D">@p.Category    Posted by <a asp-page="/Employer/EmployersPage" asp-route-id="@p.Employer_ID" style="color:#F2D3AC">Employer</a></h3>
+                        </div>
+                        <div style="margin-left:2%; margin-right:2%; margin-top:2%;  margin-bottom:2%; display:block; ">
+                            <h3 style="font-size:24px; ">Description</h3>
+                            <div style="margin-left: 7%; margin-right: 7%; margin-top: 2%; margin-bottom: 2%; background-color: #F2D3AC; height: 225px; box-shadow: 0px 0px 7px inset; border-radius: 10px;">
+                                <p style="font-size: 16px; margin-left: 1%; margin-right: 7%; margin-top: 2%; margin-bottom: 2%; ">@p.Job_Desc</p>
+                            </div>
+                        </div>
+                        <div style="margin-left:7%; display:block;">
+                            <p style="font-size:16px; color:#26221D">From: @p.Start_Date to:  @p.End_Date</p>
+                        </div>
+                        <div style="margin-left:25%; display:block;">
+                            <p style="font-size:26px; ">@p.Pay $ <a asp-page="/Employer/JobDetails" asp-route-id="@p.Job_ID" style="margin-left: 70%; color:#F2D3AC; font-size:20px">Details</a></p>
+                        </div>
+                    </div>
+                </div>
+            
+            }
+        </div>
+    </div>
+    
+</body>
+
+
+

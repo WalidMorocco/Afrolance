@@ -4,43 +4,42 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
+
 using Afrolance.Models;
+
 using Microsoft.Extensions.Configuration;
 
 namespace Afrolance.Pages.Freelancer
 {
-    public class SignUpModel : PageModel
+    public class DashboardModel : PageModel
     {
-        [BindProperty]
-        public SignUpFreelancerModel suf { get; set; }
-
+        public RegisterFreelancer tFreelancer { get; set; }
         private readonly IConfiguration _configuration;
 
-        public SignUpModel(IConfiguration configuration)
+        public DashboardModel(IConfiguration configuration)
         {
             _configuration = configuration;
         }
-        public void OnGet()
-        {
-        }
 
-        public IActionResult OnPost()
+        public IActionResult OnGet()
         {
+
             IActionResult temp;
-            if (ModelState.IsValid == false)
+            if (HttpContext.Session.GetString("Freelancer_Email") is null)
             {
-                temp = Page();
+                temp = RedirectToPage("/Freelancer/Login");
             }
             else
             {
-                if (!(suf is null))
-                {
-                    SignUpFreelancerDataAccessLayer factory = new SignUpFreelancerDataAccessLayer(_configuration);
-                    factory.Create(suf);
-                }
                 temp = Page();
+                ViewData["UserId"]=HttpContext.Session.GetInt32("Freelancer_ID");
+                ViewData["UserEmail"] = HttpContext.Session.GetInt32("Freelancer_Email");
+
             }
             return temp;
         }
+
     }
 }

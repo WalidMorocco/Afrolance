@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Job Database interaction functions
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,12 +21,12 @@ namespace Afrolance.Models
             _configuration = configuration;
             connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
-
+        //Add Job Function
         public void Create(AddJobModel job)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string sql = "INSERT Into Jobs (Job_Title, Job_Desc, Category, Start_Date, End_Date, Employer_Notes, Pay) VALUES (@Job_Title, @Job_Desc, @Category, @Start_Date, @End_Date, @Employer_Notes, @Pay);";
+                string sql = "INSERT Into Jobs (Employer_ID, Job_Title, Job_Desc, Category, Start_Date, End_Date, Employer_Notes, Pay) VALUES (@Employer_ID, @Job_Title, @Job_Desc, @Category, @Start_Date, @End_Date, @Employer_Notes, @Pay);";
                 job.Feedback = "";
 
                 try
@@ -33,6 +34,7 @@ namespace Afrolance.Models
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@Employer_ID", job.Employer_ID);
                         command.Parameters.AddWithValue("@Job_Title", job.Job_Title);
                         command.Parameters.AddWithValue("@Job_Desc", job.Job_Desc);
                         command.Parameters.AddWithValue("@Category", job.Category);
@@ -53,6 +55,7 @@ namespace Afrolance.Models
             }
         }
 
+        //Job List Function
         public IEnumerable<AddJobModel> GetActiveRecords()
         {
             List<AddJobModel> lstTix = new List<AddJobModel>();
@@ -72,6 +75,7 @@ namespace Afrolance.Models
                     {
                         AddJobModel job = new AddJobModel();
                         job.Job_ID = Convert.ToInt32(rdr["Job_ID"]);
+                        job.Employer_ID = Convert.ToInt32(rdr["Employer_ID"]);
                         job.Job_Title = rdr["Job_Title"].ToString();
                         job.Job_Desc = rdr["Job_Desc"].ToString();
                         job.Category = rdr["Category"].ToString();
@@ -93,6 +97,7 @@ namespace Afrolance.Models
             return lstTix;
         }
 
+        //Job interaction function
         public AddJobModel GetOneRecord(int? id)
         {
             AddJobModel job = new AddJobModel();
@@ -111,6 +116,7 @@ namespace Afrolance.Models
                     while (rdr.Read())
                     {
                         job.Job_ID = Convert.ToInt32(rdr["Job_ID"]);
+                        job.Employer_ID = Convert.ToInt32(rdr["Employer_ID"]);
                         job.Job_Title = rdr["Job_Title"].ToString();
                         job.Job_Desc = rdr["Job_Desc"].ToString();
                         job.Category = rdr["Category"].ToString();
@@ -131,7 +137,7 @@ namespace Afrolance.Models
             return job;
         }
 
-        
+       // Update Job Data Funtction
         public void Updatejob(AddJobModel tjob)
         {
             try
@@ -173,7 +179,7 @@ namespace Afrolance.Models
             }
         }
 
-        //Deleting a record 
+        //Deleting Job Data function
         public AddJobModel Deletejob(int? id)
         {
             AddJobModel job = new AddJobModel();

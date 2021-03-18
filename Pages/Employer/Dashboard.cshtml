@@ -1,0 +1,46 @@
+﻿@page
+@model Afrolance.Pages.Employer.DashboardModel
+@{
+}
+
+<body>
+    <div class="text-center">
+        <div><h1 class="display-4">Dashboard</h1></div>
+        <div><p id="Red"> Here is your Dashboard, here you can access all your user's features. </p></div>
+
+        <div style="float: left; width:60%; height:100px; display: inline-block; border-radius: 0px 45px 45px 0px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
+            <div style="text-align: center; padding-top:25px;">
+                <a style="font-size:30px; color:#F2D3AC" class="" asp-area="" asp-page="/Employer/JobList">Job List</a>
+            </div>
+        </div>
+
+        <div style="float: right; width:60%; height:100px; display: inline-block; border-radius: 45px 0px 0px 45px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
+            <div style="text-align: center; padding-top:25px;">
+                <a style="font-size:30px; color:#F2D3AC" class="" asp-area="" asp-page="/Employer/ApplicationList">Applicants List</a>
+            </div>
+        </div>
+
+        <div style="float: left; width:60%; height:100px; display: inline-block; border-radius:0px 45px 45px 0px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
+            <div style="text-align: center; padding-top:25px;">
+                <a style="font-size:30px; color:#F2D3AC" class="" asp-area="" asp-page="/Employer/JobAdd">Add a Job</a>
+            </div>
+        </div>
+
+        <div style="float: right; width:60%; height:100px; display: inline-block; border-radius: 45px 0px 0px 45px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
+            <div style="text-align: center; padding-top:25px;">
+                <a style="font-size:30px; color:#F2D3AC" class="" asp-area="" asp-page="/Employer/EmployersList">Employer's List</a>
+            </div>
+        </div>
+
+        <div style="float: right; width:60%; height:100px; display: inline-block; border-radius: 45px 0px 0px 45px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
+            <div style="text-align: center; padding-top:25px;">
+                <a style="font-size:30px; color:#F2D3AC" asp-page="/Employer/EmployersPage" asp-route-id="@ViewData["UserID"]">Profile Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>

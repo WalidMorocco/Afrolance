@@ -1,5 +1,5 @@
 ﻿@page
-@model Afrolance.Pages.Admin.IndexModel
+@model Afrolance.Pages.Admin.LoginModel
 @{
 }
 
@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
         <label asp-for="tAdmin.Admin_PW"></label>
-        <input asp-for="tAdmin.Admin_PW" type="text" class="form-control" placeholder="Username" />
+        <input asp-for="tAdmin.Admin_PW" type="password" class="form-control" placeholder="Password" />
         <span asp-validation-for="tAdmin.Admin_PW" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>

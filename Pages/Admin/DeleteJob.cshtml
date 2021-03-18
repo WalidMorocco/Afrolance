@@ -1,0 +1,55 @@
+﻿@page
+@model Afrolance.Pages.Admin.DeleteJobModel
+@{
+}
+
+
+<div>
+    <h4>Employer</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            Job Title
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sue.Job_Title)
+        </dd>
+        <dt>
+            Job Description
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sue.Job_Desc)
+        </dd>
+        <dt>
+            Category
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sue.Category)
+        </dd>
+        <dt>
+            Starting date
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sue.Start_Date)
+        </dd>
+        <dt>
+            Ending Date
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sue.End_Date)
+        </dd>
+        <dt>
+            Pay $
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sue.Pay)
+        </dd>
+    </dl>
+
+    <form>
+        <a asp-page="/Admin/EmployersList">Employers List</a>
+        <a asp-page="/Admin/JobList">Job List</a>
+        <a asp-page="/Admin/EmployersPage" asp-route-id="@Model.sue.Employer_ID">Employer</a>
+    </form>
+</div>

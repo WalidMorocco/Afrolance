@@ -1,11 +1,18 @@
-﻿using System;
+﻿//Employer Database interaction functions
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using Afrolance.Models;
+
 using System.Data;
 using System.Data.SqlClient;
-using Afrolance.Models;
+
 using Microsoft.Extensions.Configuration;
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Session;
 
 namespace Afrolance.Models
 {
@@ -86,9 +93,7 @@ namespace Afrolance.Models
         }
         public SignUpEmployerModel GetOneRecord(int? id)
         {
-            //Placeholder for record based on ID
             SignUpEmployerModel Employer = new SignUpEmployerModel();
-
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))

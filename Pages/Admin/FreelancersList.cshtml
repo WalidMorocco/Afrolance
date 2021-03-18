@@ -1,0 +1,73 @@
+﻿@page
+@model Afrolance.Pages.Admin.FreelancersListModel
+@{
+}
+
+<h1>Freelancers List</h1>
+<div class="text-center">
+    <table class="table table-bordered table-sm table-striped">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Field of work</th>
+                <th>Resume</th>
+                <th>Bio</th>
+                <th>Phone</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No Model</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var p in Model.tix)
+                {
+                    <tr>
+                        <td>@p.Freelancer_ID</td>
+                        <td>@p.Freelancer_FName</td>
+                        <td>@p.Freelancer_LName</td>
+                        <td>@p.Freelancer_Email</td>
+                        <td>@p.Freelancer_PW</td>
+                        <td>@p.Freelancer_Field</td>
+                        <td>@p.Freelancer_Resume</td>
+                        <td>@p.Freelancer_Bio</td>
+                        <td>@p.Freelancer_Phone</td>
+                        <td>@p.Freelancer_Country</td>
+                        <td>@p.Freelancer_City</td>
+
+                        @{
+                            if (p.Freelancer_Status == true)
+                            {
+                                <td>Active</td>
+                            }
+                            else
+                            {
+                                <td>Closed</td>
+                            }
+                        }
+                        <td><a asp-page="/Admin/EditFreelancer" asp-route-id="@p.Freelancer_ID">Edit</a></td>
+                        <td><a asp-page="/Admin/DeleteFreelancer" asp-route-id="@p.Freelancer_ID">Delete</a></td>
+                        <td><a asp-page="/Admin/FreelancerPage" asp-route-id="@p.Freelancer_ID">Profile</a></td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+
+    </table>
+
+</div>

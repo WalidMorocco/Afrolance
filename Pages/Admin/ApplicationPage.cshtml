@@ -1,0 +1,45 @@
+﻿@page
+@model Afrolance.Pages.Admin.ApplicationPageModel
+@{
+}
+<body>
+    <h1>Apply</h1>
+
+    <form method="post">
+
+        <div class="form-group">
+            <input asp-for="apl.Job_ID" type="text" value="" class="form-control" placeholder="Job ID">
+            <span asp-validation-for="apl.Job_ID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="apl.Freelancer_ID" type="text" value="" class="form-control" placeholder="Freelancer ID">
+            <span asp-validation-for="apl.Freelancer_ID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="apl.Freelancer_Email" type="text" value="" class="form-control" placeholder="Freelancer Email">
+            <span asp-validation-for="apl.Freelancer_Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="apl.Job_Title" type="text" value="" class="form-control" placeholder="Job Title">
+            <span asp-validation-for="apl.Job_Title" class="text-danger"></span>
+        </div>
+        <p>     Are you sure to apply for this job ?</p>
+        <button type="submit">Apply</button>
+    </form>
+</body>
+
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+@{
+    if (Model.apl is null == false)
+    {
+        <h1>Results</h1>
+        <p>@Model.apl.Feedback</p>
+    }
+}

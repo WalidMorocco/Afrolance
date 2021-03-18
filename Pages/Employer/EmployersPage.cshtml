@@ -1,0 +1,53 @@
+﻿@page
+@model Afrolance.Pages.Admin.EmployersPageModel
+@{
+}
+
+
+<body>
+    <div>
+        <div style=" ">
+            <div style="position:center; background-color: #A67246; box-shadow: 5px 10px 10px #26221d; border-radius: 0px 45px;">
+                <h1 style="text-align:center; padding-top:3%; padding-bottom:3%;">@Html.DisplayFor(model => model.sue.Employer_Name)</h1>
+
+            </div>
+            <div style="background-color: #F2D3AC; box-shadow: 5px 10px 10px #26221d; border-radius: 45px 45px;">
+                <h2 style="padding-left: 2%; padding-top: 2%; font-size:20px; padding-bottom: 2%;">@Html.DisplayFor(model => model.sue.Employer_Field)</h2>
+            </div>
+        </div>
+        <hr />
+        <div style="background-color: #26221D; box-shadow: 5px 10px 10px #26221d;">
+            <dt style="color: white; padding-left:2%; padding-top:1%">
+                Email
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%;">
+                @Html.DisplayFor(model => model.sue.Employer_Email)
+            </dd>
+            <dt style="color: white; padding-left:2%; padding-top:1%">
+                Field
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%;">
+                @Html.DisplayFor(model => model.sue.Employer_Field)
+            </dd>
+            <dt style="color: white; padding-left:2%; padding-top:1%; text-align:center;">
+                Description
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%; text-align:center; padding-bottom:2%;">
+                @Html.DisplayFor(model => model.sue.Employer_Description)
+            </dd>
+
+
+        </div>
+        <form style="color: #F2D3AC; padding-left:2%; padding-top:1%; padding-bottom:3%;">
+            <div>
+                <a asp-page="/Employer/EmployersList">Employers List</a>
+            </div>
+            <div>
+                <a asp-page="/Employer/JobList">Job List</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+

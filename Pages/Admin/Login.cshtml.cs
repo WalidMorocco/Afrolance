@@ -11,13 +11,13 @@ using Microsoft.AspNetCore.Http;
 
 namespace Afrolance.Pages.Admin
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
         [BindProperty]
         public RegisterAdmin tAdmin { get; set; }
         private readonly IConfiguration _configuration;
 
-        public IndexModel(IConfiguration configuration)
+        public LoginModel(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -46,7 +46,7 @@ namespace Afrolance.Pages.Admin
                     {
                         HttpContext.Session.SetInt32("Admin_ID", lstAdmin[0].Admin_ID);
                         HttpContext.Session.SetString("Admin_Email", lstAdmin[0].Admin_Email);
-                        temp = Redirect("/Admin/ControlPanel");
+                        temp = Redirect("/Admin/Dashboard");
                     }
                     else
                     {

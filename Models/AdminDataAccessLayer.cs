@@ -1,11 +1,18 @@
-﻿using System;
+﻿// Function for the admin registration
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using Afrolance.Models;
+
 using System.Data;
 using System.Data.SqlClient;
-using Afrolance.Models;
+
 using Microsoft.Extensions.Configuration;
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Session;
 
 namespace Afrolance.Models
 {
@@ -20,6 +27,8 @@ namespace Afrolance.Models
 
 
         }
+
+        //Login Admin function
         public IEnumerable<RegisterAdmin> GetAdminLogin(RegisterAdmin tAdmin)
         {
             List<RegisterAdmin> lstAdmin = new List<RegisterAdmin>();

@@ -1,0 +1,61 @@
+﻿@page
+@model Afrolance.Pages.Admin.FreelancerPageModel
+@{
+}
+
+<body>
+    <div>
+        <div style=" ">
+            <div style="position:center; background-color: #A67246; box-shadow: 5px 10px 10px #26221d; border-radius: 0px 45px;">
+                <h1 style="text-align:center; padding-top:3%; padding-bottom:3%;">@Html.DisplayFor(model => model.sue.Freelancer_FName) @Html.DisplayFor(model => model.sue.Freelancer_LName)</h1>
+
+            </div>
+            <div style="background-color: #F2D3AC; box-shadow: 5px 10px 10px #26221d; border-radius: 45px 45px;">
+                <h2 style="padding-left: 2%; padding-top: 2%; font-size:20px; padding-bottom: 2%;">@Html.DisplayFor(model => model.sue.Freelancer_Field)</h2>
+            </div>
+        </div>
+        <hr />
+        <div style="background-color: #26221D; box-shadow: 5px 10px 10px #26221d;">
+            <dt style="color: white; padding-left:2%; padding-top:1%">
+                Email
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%;">
+                @Html.DisplayFor(model => model.sue.Freelancer_Email)
+            </dd>
+            <dt style="color: white; padding-left:2%; padding-top:1%">
+                Phone
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%;">
+                @Html.DisplayFor(model => model.sue.Freelancer_Phone)
+            </dd>
+            <dt style="color: white; padding-left:2%; padding-top:1%">
+                Located in :
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%;">
+                @Html.DisplayFor(model => model.sue.Freelancer_Country), @Html.DisplayFor(model => model.sue.Freelancer_City)
+            </dd>
+            <dt style="color: white; padding-left:2%; padding-top:1%; text-align:center;">
+                Resume 
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%; text-align:center; padding-bottom:2%;">
+                @Html.DisplayFor(model => model.sue.Freelancer_Resume)
+            </dd>
+
+
+        </div>
+        <form style="color: #F2D3AC; padding-left:2%; padding-top:1%; padding-bottom:3%;">
+            <div>
+                <a asp-page="/Admin/FreelancersList">Freelancers List</a>
+            </div>
+            <div>
+                <a asp-page="/Admin/JobList">Job List</a>
+            </div>
+            <div>
+                <a asp-page="/Admin/EditFreelancer" asp-route-id="@Html.DisplayFor(model => model.sue.Freelancer_ID)">Edit</a>
+            </div>
+            <div>
+                <a asp-page="/Admin/DeleteFreelancer" asp-route-id="@Html.DisplayFor(model => model.sue.Freelancer_ID)">Delete</a>
+            </div>
+        </form>
+    </div>
+</body>

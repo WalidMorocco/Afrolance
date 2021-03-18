@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Afrolance.Pages
+namespace Afrolance.Pages.Admin
 {
-    public class ProfilePageModel : PageModel
+    public class DeleteFreelancerModel : PageModel
     {
         public void OnGet()
         {

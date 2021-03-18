@@ -1,0 +1,56 @@
+﻿@page
+@model Afrolance.Pages.Freelancer.JobDetailsModel
+@{
+}
+
+<body>
+    <div>
+        <div style=" ">
+            <div style="position:center; background-color: #A67246; box-shadow: 5px 10px 10px #26221d; border-radius: 0px 45px;">
+                <h1 style="text-align:center; padding-top:3%; padding-bottom:3%;">@Html.DisplayFor(model => model.sue.Job_Title)</h1>
+
+            </div>
+            <div style="background-color: #F2D3AC; box-shadow: 5px 10px 10px #26221d; border-radius: 45px 45px;">
+                <h2 style="padding-left: 2%; padding-top: 2%; font-size:20px; padding-bottom: 2%;">@Html.DisplayFor(model => model.sue.Category)</h2>
+            </div>
+        </div>
+        <hr />
+        <div style="background-color: #26221D; box-shadow: 5px 10px 10px #26221d;">
+            <dt style="color: white; padding-left:2%; padding-top:1%">
+                <a asp-page="/Freelancer/EmployersPage" asp-route-id="@Html.DisplayFor(model => model.sue.Employer_ID)" style="color:#F2D3AC">Employer</a>
+            </dt>
+            <dt style="color: white; padding-left:2%; padding-top:1%">
+                Start date and End date:
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%;">
+                @Html.DisplayFor(model => model.sue.Start_Date) to @Html.DisplayFor(model => model.sue.End_Date)
+            </dd>
+            <dt style="color: white; padding-left:2%; padding-top:1%; text-align:center;">
+                Description
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%; text-align:center; padding-bottom:2%;">
+                @Html.DisplayFor(model => model.sue.Job_Desc)
+            </dd>
+            <dt style="color: white; padding-left:2%; padding-top:1%; text-align:center;">
+                Pay
+            </dt>
+            <dd style="color: #F2D3AC; padding-left:2%; padding-top:1%; text-align:center; padding-bottom:2%;">
+                @Html.DisplayFor(model => model.sue.Pay)
+            </dd>
+
+
+        </div>
+        <form style="color: #F2D3AC; padding-left:2%; padding-top:1%; padding-bottom:3%;">
+            <div>
+                <a asp-page="/Freelancer/EmployersPage" asp-route-id="@Model.sue.Employer_ID">Employer's Page</a>
+            </div>
+            <div>
+                <a asp-page="/Freelancer/ApplicationPage">Apply to this Job</a>
+            </div>
+            <div>
+                <a asp-page="/Freelancer/JobList"> Back to Job List</a>
+            </div>
+        </form>
+        
+    </div>
+</body>

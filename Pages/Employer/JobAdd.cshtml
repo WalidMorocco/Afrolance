@@ -1,46 +1,83 @@
 ﻿@page
-@model Afrolance.Pages.Admin.JobAddModel
+@model Afrolance.Pages.Employer.JobAddModel
 @{
+
 }
 
-<h1>Add a Job</h1>
+<body>
+    <h1>Add a Job</h1>
 
-<form method="post">
+    <form method="post">
+        <div class="form-group">
+            <input asp-for="job.Employer_ID" type="hidden" value="@ViewData["UserId"]" class="form-control" placeholder="Employer ID">
+            <span asp-validation-for="job.Employer_ID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="job.Job_Title">Job Title</label>
+            <input asp-for="job.Job_Title" type="text" class="form-control" placeholder="Job Title" />
+            <span asp-validation-for="job.Job_Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="job.Job_Desc">Job Description</label>
+            <textarea asp-for="job.Job_Desc" type="text" class="form-control" placeholder="Job Description"></textarea>
+            <span asp-validation-for="job.Job_Desc" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="job.Category">Category</label>
+            <select asp-for="job.Category" class="form-control">
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Design">Design</option>
+                <option value="Business">Business</option>
+                <option value="Communication">Communication</option>
+                <option value="Medical">Medical</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Architecture">Architecture</option>
+                <option value="Languages">Languages</option>
+                <option value="Driving">Driving</option>
+                <option value="Teaching">Teaching</option>
+                <option value="Music">Music</option>
+                <option value="Cosmetic">Cosmetic</option>
+                <option value="Photography">Photography</option>
+                <option value="Desk">Desk</option>
+                <option value="Security">Security</option>
+            </select>
+            <span asp-validation-for="job.Category" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Start date</label>
+            <input type="datetime-local" asp-for="job.Start_Date" placeholder="Starting day" class="form-control" />
+            <span asp-validation-for="job.Start_Date" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>End Date</label>
+            <input type="datetime-local" asp-for="job.End_Date" placeholder="Ending day" class="form-control" />
+            <span asp-validation-for="job.End_Date" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="job.Employer_Notes">Employer's Notes</label>
+            <textarea asp-for="job.Employer_Notes" type="text" class="form-control" placeholder="Employer Notes"></textarea>
+            <span asp-validation-for="job.Employer_Notes" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="job.Pay">Pay $</label>
+            <input asp-for="job.Pay" type="number" class="form-control" placeholder="Pay" />
+            <span asp-validation-for="job.Pay" class="text-danger"></span>
+        </div>
+
+        <button type="submit">Submit</button>
 
 
-    <div class="form-group">
-        <label asp-for="job.Job_Title"></label>
-        <input asp-for="job.Job_Title" type="text" class="form-control" placeholder="Job Title" />
-        <span asp-validation-for="job.Job_Title" class="text-danger"></span>
-    </div>
+    </form>
+</body>
 
-    <div class="form-group">
-        <label asp-for="job.Job_Desc"></label>
-        <input asp-for="job.Job_Desc" type="text" class="form-control" placeholder="Job Description" />
-        <span asp-validation-for="job.Job_Desc" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="job.Category"></label>
-        <input asp-for="job.Category" type="text" class="form-control" placeholder="Category" />
-        <span asp-validation-for="job.Category" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="job.Employer_Notes"></label>
-        <input asp-for="job.Employer_Notes" type="text" class="form-control" placeholder="Employer Notes" />
-        <span asp-validation-for="job.Employer_Notes" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="job.Pay"></label>
-        <input asp-for="job.Pay" type="text" class="form-control" placeholder="Pay" />
-        <span asp-validation-for="job.Pay" class="text-danger"></span>
-    </div>
-
-    <button type="submit">Submit</button>
-
-
-</form>
 
 <script src="/lib/jquery/dist/jquery.min.js"></script>
 <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
@@ -50,7 +87,6 @@
     if (Model.job is null == false)
     {
         <h1>Results</h1>
-        <p>@Model.job.Job_Title</p>
         <p>@Model.job.Feedback</p>
     }
 }

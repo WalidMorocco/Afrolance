@@ -1,0 +1,29 @@
+﻿@page
+@model Afrolance.Pages.Admin.ApplicationListModel
+@{
+}
+
+<body>
+    <div style="">
+        <div style="margin-left:1%; display:block;">
+            <h1>Job List</h1>
+        </div>
+        <div>
+            <a class="nav-link" style="color:white" asp-area="" asp-page="/Admin/JobAdd">Add a job</a>
+        </div>
+        <div>
+            @foreach (var p in Model.tix)
+            {
+                <div style=" margin-bottom: 50px;">
+                    <div class="" style="margin-top:50px; margin-bottom: 50px; display: block; margin-left:2%; margin-right:2%; background-color: #A67246; box-shadow: 5px 10px 10px #26221d; border-radius: 0px 200px 0px 0px">
+                        <div style="margin-left:1%; display:block;">
+
+                            <h2 style="font-size:28px; color:#26221D"><a asp-page="/Admin/FreelancerPage" asp-route-id="@p.Freelancer_ID" style="color:#F2D3AC">@p.Freelancer_Email</a> applied for  <a asp-page="/Admin/JobDetails" asp-route-id="@p.Job_ID" style="color:#F2D3AC">@p.Job_Title</a></h2>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</body>

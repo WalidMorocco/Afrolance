@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Afrolance.Models;
 using Afrolance.Pages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
 
 namespace Afrolance.Pages.Admin
 {
@@ -14,7 +16,7 @@ namespace Afrolance.Pages.Admin
     {
         private readonly IConfiguration _configuration;
         AddJobDataAccessLayer factory;
-        public String FName { get; set; }
+        public RegisterAdmin tAdmin { get; set; }
         public List<AddJobModel> tix { get; set; }
 
         public JobListModel(IConfiguration configuration)
@@ -23,16 +25,21 @@ namespace Afrolance.Pages.Admin
             factory = new AddJobDataAccessLayer(_configuration);
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            if (string.IsNullOrWhiteSpace(FName))
+            IActionResult temp;
+            if (HttpContext.Session.GetString("Admin_Email") is null)
             {
-                FName = "You!";
+                temp = RedirectToPage("/Admin/Login");
             }
+            else
+            {
+                tix = factory.GetActiveRecords().ToList();
+                temp = Page();
 
-            //Fill in current empty list with records
-            tix = factory.GetActiveRecords().ToList();
-
+            }
+            return temp;
         }
+
     }
 }

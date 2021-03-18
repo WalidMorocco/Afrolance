@@ -1,5 +1,5 @@
 ﻿@page
-@model Afrolance.Pages.Freelancer.IndexModel
+@model Afrolance.Pages.Freelancer.LoginModel
 @{
 }
 
@@ -9,13 +9,13 @@
 
 
     <div class="form-group">
-        <label asp-for="tFreelancer.Freelancer_Email"></label>
+        <label asp-for="tFreelancer.Freelancer_Email">Freelancer Email</label>
         <input asp-for="tFreelancer.Freelancer_Email" type="text" class="form-control" placeholder="Username" />
         <span asp-validation-for="tFreelancer.Freelancer_Email" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="tFreelancer.Freelancer_PW"></label>
-        <input asp-for="tFreelancer.Freelancer_PW" type="text" class="form-control" placeholder="Username" />
+        <input asp-for="tFreelancer.Freelancer_PW" type="password" class="form-control" placeholder="Password" />
         <span asp-validation-for="tFreelancer.Freelancer_PW" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>

@@ -11,26 +11,22 @@ using Microsoft.AspNetCore.Http;
 
 namespace Afrolance.Pages.Employer
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
         [BindProperty]
-        public SignUpEmployerModel tEmployer { get; set; }
+        public RegisterEmployer tEmployer { get; set; }
         private readonly IConfiguration _configuration;
 
-        public IndexModel(IConfiguration configuration)
+        public LoginModel(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public void OnGet()
-        {
-            HttpContext.Session.SetInt32("test", 5);
-        }
 
         public IActionResult OnPost()
         {
             IActionResult temp;
-            List<SignUpEmployerModel> lstEmployer = new List<SignUpEmployerModel>();
+            List<RegisterEmployer> lstEmployer = new List<RegisterEmployer>();
             if (ModelState.IsValid == false)
             {
                 temp = Page();
@@ -39,14 +35,15 @@ namespace Afrolance.Pages.Employer
             {
                 if (tEmployer != null)
                 {
-                    SignUpEmployerDataAccessLayer factory = new SignUpEmployerDataAccessLayer(_configuration);
+                    EmployerDataAccessLayer factory = new EmployerDataAccessLayer(_configuration);
                     lstEmployer = factory.GetEmployerLogin(tEmployer).ToList();
 
                     if (lstEmployer.Count > 0)
                     {
                         HttpContext.Session.SetInt32("Employer_ID", lstEmployer[0].Employer_ID);
                         HttpContext.Session.SetString("Employer_Email", lstEmployer[0].Employer_Email);
-                        temp = Redirect("/Employer/ControlPanel");
+                        temp = Redirect("/Employer/Dashboard");
+                        
                     }
                     else
                     {

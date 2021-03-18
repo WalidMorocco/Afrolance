@@ -13,13 +13,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace Afrolance.Pages.Admin
 {
-    public class ControlPanelModel : PageModel
+    public class DashboardModel : PageModel
     {
         private readonly IConfiguration _configuration;
         SignUpEmployerDataAccessLayer factory;
         public List<SignUpEmployerModel> tix { get; set; }
 
-        public ControlPanelModel(IConfiguration configuration)
+        public DashboardModel(IConfiguration configuration)
         {
             _configuration = configuration;
             factory = new SignUpEmployerDataAccessLayer(_configuration);
@@ -30,7 +30,7 @@ namespace Afrolance.Pages.Admin
             IActionResult temp;
             if (HttpContext.Session.GetString("Admin_Email") is null)
             {
-                temp = RedirectToPage("/Admin/Index");
+                temp = RedirectToPage("/Admin/Login");
             }
             else
             {

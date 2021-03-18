@@ -4,7 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
+
 using Afrolance.Models;
+
 using Microsoft.Extensions.Configuration;
 
 namespace Afrolance.Pages.Admin
@@ -14,6 +18,7 @@ namespace Afrolance.Pages.Admin
         private readonly IConfiguration _configuration;
         public SignUpEmployerModel sue { get; set; }
         public SignUpEmployerDataAccessLayer factory;
+        public List<SignUpEmployerModel> tix { get; set; }
 
         public DeleteEmployerModel(IConfiguration configuration)
         {

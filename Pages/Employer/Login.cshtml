@@ -1,5 +1,5 @@
 ﻿@page
-@model Afrolance.Pages.Employer.IndexModel
+@model Afrolance.Pages.Employer.LoginModel
 @{
 }
 
@@ -9,13 +9,13 @@
 
 
     <div class="form-group">
-        <label asp-for="tEmployer.Employer_Email"></label>
+        <label asp-for="tEmployer.Employer_Email">Employer Email</label>
         <input asp-for="tEmployer.Employer_Email" type="text" class="form-control" placeholder="Username" />
         <span asp-validation-for="tEmployer.Employer_Email" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="tEmployer.Employer_PW"></label>
-        <input asp-for="tEmployer.Employer_PW" type="text" class="form-control" placeholder="Username" />
+        <input asp-for="tEmployer.Employer_PW" type="password" class="form-control" placeholder="Password" />
         <span asp-validation-for="tEmployer.Employer_PW" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Validation Library
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Afrolance.Models
         {
             DateTime _dateJoin = Convert.ToDateTime(value);
 
-            if (_dateJoin <= DateTime.Now)
+            if (_dateJoin >= DateTime.Now)
             {
                 return ValidationResult.Success;
             }

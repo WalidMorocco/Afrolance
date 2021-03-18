@@ -4,7 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
+
 using Afrolance.Models;
+
 using Microsoft.Extensions.Configuration;
 
 namespace Afrolance.Pages.Employer
@@ -13,6 +17,8 @@ namespace Afrolance.Pages.Employer
     {
         [BindProperty]
         public AddJobModel job { get; set; }
+        AddJobDataAccessLayer factory;
+        public List<AddJobDataAccessLayer> tix { get; set; }
 
         private readonly IConfiguration _configuration;
 
@@ -20,8 +26,22 @@ namespace Afrolance.Pages.Employer
         {
             _configuration = configuration;
         }
-        public void OnGet()
+
+        public IActionResult OnGet()
         {
+
+            IActionResult temp;
+            if (HttpContext.Session.GetString("Employer_Email") is null)
+            {
+                temp = RedirectToPage("/Employer/Login");
+            }
+            else
+            {
+                temp = Page();
+                ViewData["UserId"] = HttpContext.Session.GetInt32("Employer_ID");
+
+            }
+            return temp;
         }
 
         public IActionResult OnPost()
@@ -30,6 +50,7 @@ namespace Afrolance.Pages.Employer
             if (ModelState.IsValid == false)
             {
                 temp = Page();
+                ViewData["UserId"] = HttpContext.Session.GetInt32("Employer_ID");
             }
             else
             {

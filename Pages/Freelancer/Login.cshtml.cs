@@ -11,26 +11,22 @@ using Microsoft.AspNetCore.Http;
 
 namespace Afrolance.Pages.Freelancer
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
         [BindProperty]
-        public SignUpFreelancerModel tFreelancer { get; set; }
+        public RegisterFreelancer tFreelancer { get; set; }
         private readonly IConfiguration _configuration;
 
-        public IndexModel(IConfiguration configuration)
+        public LoginModel(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public void OnGet()
-        {
-            HttpContext.Session.SetInt32("test", 5);
-        }
 
         public IActionResult OnPost()
         {
             IActionResult temp;
-            List<SignUpFreelancerModel> lstFreelancer = new List<SignUpFreelancerModel>();
+            List<RegisterFreelancer> lstFreelancer = new List<RegisterFreelancer>();
             if (ModelState.IsValid == false)
             {
                 temp = Page();
@@ -39,14 +35,16 @@ namespace Afrolance.Pages.Freelancer
             {
                 if (tFreelancer != null)
                 {
-                    SignUpFreelancerDataAccessLayer factory = new SignUpFreelancerDataAccessLayer(_configuration);
+                    FreelancerDataAccessLayer factory = new FreelancerDataAccessLayer(_configuration);
                     lstFreelancer = factory.GetFreelancerLogin(tFreelancer).ToList();
 
                     if (lstFreelancer.Count > 0)
                     {
                         HttpContext.Session.SetInt32("Freelancer_ID", lstFreelancer[0].Freelancer_ID);
                         HttpContext.Session.SetString("Freelancer_Email", lstFreelancer[0].Freelancer_Email);
-                        temp = Redirect("/Freelancer/ControlPanel");
+                        temp = Redirect("/Freelancer/Dashboard");
+
+                        
                     }
                     else
                     {

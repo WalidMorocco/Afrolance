@@ -6,31 +6,43 @@
 
 <body>
     <div style="height:40px; display: block;">
-        <a class="navbar text-dark" style="background-color:#F2B988; width:6%; float: right; font-size:12px;" asp-area="" asp-page="/Admin/Index">Login Admin</a>
+        <a class="navbar text-dark" style="background-color:#F2B988; width:6%; display:inline-block; float: right; font-size:12px;" asp-area="" asp-page="/Admin/Login">Login Admin</a>
     </div>
-    <div style="float: left; width:45%; display: block;">
-        <div style="margin-left:25%; display: block;"><h2>Employer</h2></div>
-        <div style="display:block">
-            <li>Signing up as an employer means that you are either company, a buisiness or an individual and </li>
+    <div style="display:block; text-align:center">
+        <h1>Login / Sign Up</h1>
+    </div>
+    <div style="float: left; width:60%; display: inline-block; border-radius: 0px 45px 45px 0px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
+        <div style="display: block; color:#F2D3AC"><h2 style="text-align:center">Employer</h2></div>
+        <div style="display:block; padding-left:1%; padding-top:1%; padding-bottom:1%; padding-right:1%; ">
+            <li>Signing up as an employer means that you are either company, a buisiness or an individual. Afrolance is where you are going to find young freelancers working or studying on your field for small temporary jobs for your company.</li>
+            <li>    You'll be able to:</li>
             <li>Post a Job Announcement</li>
             <li>Access to the Jobs list</li>
-            <li>Access to the any job's applicant page</li>
-            <li>Acces to Freelancers profiles</li>
+            <li>Access to the Freelancers Profile Pages</li>
         </div>
-        <div class="nav-item" style="display: block;">
-            <a class="" asp-area="" asp-page="/Employer/Index">Login</a>
+        <div class="nav-item" style="display: block; padding-left:30%; padding-bottom:1%">
+            <a class="" asp-area="" asp-page="/Employer/Login">Login</a>
             <a class="" asp-area="" asp-page="/SUEmployer">Sign Up</a>
         </div>
     </div>
-    <div style="float: right; width:45%; display: block;">
-        <div style="margin-left:25%; "><h2>Freelancer</h2></div>
-        <div style="display:block;">
-            <li>Apply to a job</li>
+
+    <div style="float: right; width:60%; display: inline-block; border-radius: 45px 0px 0px 45px; background-color:#A67246; margin-top:5%; box-shadow: 5px 10px 10px #26221d;">
+        <div style="display: block; color:#F2D3AC"><h2 style="text-align:center">Freelancer</h2></div>
+
+        <div style="display:block; padding-left:1%; padding-top:1%; padding-bottom:1%; padding-right:1%; ">
+            <li>Signing up as an employer means that you are a young freelancer who is going to get into the professional world and need small jobs for money and experience. In Afrolance you will find small temporary jobs from different companies.</li>
+            <li>    You'll be able to:</li>
+            <li>Have a profile page</li>
+            <li>Access the company list</li>
             <li>Access the job list</li>
+            <li>Apply to a job</li>
         </div>
-        <div class="nav-item" style="display: block;">
-            <a class="" asp-area="" asp-page="/Freelancer/Index">Login</a>
+        <div class="nav-item" style="display: block; padding-left:30%; padding-bottom:1%">
+            <a class="" asp-area="" asp-page="/Freelancer/Login">Login</a>
             <a class="" asp-area="" asp-page="/SUFreelancer">Sign Up</a>
         </div>
+
     </div>
 </body>
+
+

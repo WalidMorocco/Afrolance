@@ -4,7 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
+
 using Afrolance.Models;
+
 using Microsoft.Extensions.Configuration;
 
 namespace Afrolance.Pages.Admin
@@ -16,6 +20,7 @@ namespace Afrolance.Pages.Admin
         [BindProperty]
         public SignUpEmployerModel sue { get; set; }
         public SignUpEmployerDataAccessLayer factory;
+        public List<SignUpEmployerModel> tix { get; set; }
 
         public EditEmployerModel(IConfiguration configuration)
         {
@@ -38,6 +43,7 @@ namespace Afrolance.Pages.Admin
             }
             return Page();
         }
+
         public ActionResult OnPost()
         {
             if (!ModelState.IsValid)
@@ -45,7 +51,7 @@ namespace Afrolance.Pages.Admin
                 return Page();
             }
             factory.UpdateEmployer(sue);
-            return RedirectToPage("/Admin/ControlPanel");
+            return RedirectToPage("/Admin/EmployersList");
         }
     }
 }
